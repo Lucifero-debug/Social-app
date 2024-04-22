@@ -6,6 +6,8 @@ import TurnedInNotOutlinedIcon from '@mui/icons-material/TurnedInNotOutlined';
 import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined';
 import Img from './Img';
 import ShowPost from '../Pages/showPost';
+import Followers from '../Pages/follow/Followers';
+import Following from '../Pages/follow/Following';
 
 const Container=styled.div`
 margin-left: 50px;
@@ -120,6 +122,18 @@ gap: 10px;
 const Render=styled.div`
 margin-top: 20px;
 `
+const Backdrop = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+  backdrop-filter: blur(5px); /* Adjust the blur intensity as needed */
+  z-index: 999;
+`;
+
+
 
 function Profile() {
   const {currentUser}=useSelector(state => state.user);
@@ -128,15 +142,20 @@ function Profile() {
   const [tag,setTag]=useState(false)
   const [posts,setPosts]=useState([])
   const [opens,setOpens]=useState(false)
+  const [follower,setFollower]=useState(false)
+  const [following,setFollowing]=useState(false)
+
  useEffect(()=>{
 if (post) {
   setPosts(currentUser?.posts)
 }
  },[currentUser.posts,post])
  
-
+ 
   return (
     <>
+     {follower && <Backdrop onClick={() => setFollower(false)} />}
+     {following && <Backdrop onClick={() => setFollowing(false)} />}
     <Container>
       <Profiles>
       <Avatar src={currentUser?.avatar}/>
@@ -148,8 +167,8 @@ if (post) {
    </Username>
     <Follow>
 <h3>{currentUser?.posts.length} Posts</h3>
-<H3>{currentUser?.followers.length} Followers</H3>
-<H3>{currentUser?.following.length} Following</H3>
+<H3 onClick={()=>setFollower(true)}>{currentUser?.followers.length} Followers</H3>
+<H3 onClick={()=>setFollowing(true)}>{currentUser?.following.length} Following</H3>
     </Follow>
     <Info>
 <Name>{currentUser?.fullName}</Name>
@@ -190,6 +209,8 @@ TAGGED
 </Last>
     </Container>
     {opens && <ShowPost setOpens={setOpens}/>}
+    {follower && <Followers setFollower={setFollower}/>}
+    {following && <Following setFollowing={setFollowing}/>}
     </>
   )
 }
