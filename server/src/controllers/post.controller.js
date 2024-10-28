@@ -66,6 +66,11 @@ const updatePost=asyncHandler(async(req,res)=>{
 
 const findPost=asyncHandler(async(req,res)=>{
     const {postId}=req.params
+
+    if (!mongoose.Types.ObjectId.isValid(postId)) {
+        throw new ApiError(400, "Invalid postId format");
+    }
+
     const post=await Post.findById(postId)
     if (!post) {
         throw new ApiError(405,"Post does not exist")
