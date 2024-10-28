@@ -8,14 +8,28 @@ import {useDispatch,useSelector} from 'react-redux'
 
 const Container=styled.div`
 cursor: pointer;
+width: 200px;
+  height: 200px;
+  @media (min-width: 768px) {
+width: 270px;
+height: 320px;
+  }
 `
 const Photo=styled.img`
+  width: 200px;
+  height: 200px;
+  @media (min-width: 768px) {
 width: 270px;
 height: 320px;
+  }
 `
 const Video=styled.video`
+width: 200px;
+  height: 200px;
+  @media (min-width: 768px) {
 width: 270px;
 height: 320px;
+  }
 `
 
 function Img({post,setOpens}) {

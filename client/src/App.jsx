@@ -18,6 +18,8 @@ import Register from "./Pages/Register.jsx";
 import Story from "./Pages/Story/Story.jsx";
 import ShowProfile from "./Pages/showProfile.jsx";
 import ShowMessage from "./components/Message/showMessage.jsx";
+import MobileHead from "./components/MobileHead.jsx";
+import MobileFoot from "./components/MobileFoot.jsx";
 
 const Container=styled.div`
 display: flex;
@@ -29,7 +31,9 @@ background-color: black;
 overflow-y: auto;
 `
 const Wrapper=styled.div`
+@media (min-width: 640px) {
 padding: 22px 96px;
+}
 `;
 
 const Hr=styled.hr `
@@ -76,6 +80,7 @@ const [more,setMore]=useState(false)
 {more && <MorePage setMore={setMore}/>}
 <Hr/>
 <Main>
+<MobileHead/>
 <Wrapper>
 <Routes>
   <Route path="/" element={<Outlet/>}>
@@ -95,6 +100,7 @@ const [more,setMore]=useState(false)
   </Route>
 </Routes>
 </Wrapper>
+<MobileFoot/>
 </Main>
 </BrowserRouter>
 </Container>

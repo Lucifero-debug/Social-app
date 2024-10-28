@@ -11,6 +11,7 @@ import {fetchProfile} from '../redux/profileSlice'
 import { Link } from "react-router-dom";
 
 
+
 const Container=styled.div`
 background-color: black;
 color: white;
@@ -26,18 +27,27 @@ width:70%;
 position: relative;
 `
 const Suggested=styled.div`
+display: none;
+@media (min-width: 640px) {
 flex: 2;
 display: flex;
 flex-direction: column;
 gap: 20px;
 position: relative;
+}
 `
 const Stories=styled.div`
+margin-left: 8px;
+margin-top: 83px;
 display: flex;
-gap: 20px;
-width:100%;
+width: 96vw;
 overflow-x: auto;
 scroll-behavior: smooth;
+gap: 25px;
+@media (min-width: 640px) {
+  margin-top: 0px;
+width:100%;
+}
 /* &::-webkit-scrollbar{
   display: none;
 } */
@@ -130,6 +140,7 @@ const handleClick=()=>{
     <>
     <Container>
      <Main>
+    
 <Stories>
 {currentUser.following.map((story)=>(
 <Avatars key={story} story={story}/>

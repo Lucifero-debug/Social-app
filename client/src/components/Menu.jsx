@@ -17,13 +17,18 @@ import { useSelector } from "react-redux";
 import LoginIcon from '@mui/icons-material/Login';
 
 const Container = styled.div`
+display: none;
+@media (min-width: 640px) {
+  display: flex;
+  flex-direction: column;
   flex: 1;
   background-color: black;
-  height: 100%;
+  height: 100vh;
   color: white;
   font-size: 14px;
   position: sticky;
   top: 0;
+}
   /* gap: 200px; */
 `;
 const Wrapper = styled.div`

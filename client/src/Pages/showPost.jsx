@@ -15,43 +15,66 @@ import {format} from "timeago.js"
 import { likes } from '../redux/postSlice';
 import { fetchNoti,notification } from '../redux/notificationSlice';
 
-const Container=styled.div`
-width: 100%;
-height: 100%;
-position: fixed;
-top: 0;
-left: 0;
-background-color: #000000a7;
-display: flex;
-align-items: center;
-justify-content: center;
-color: white;
-overflow-y: auto;
-/* gap: 15px; */
-`
-const Img=styled.img`
-width:30%;
-height: 90%;
-position: relative;
-right: 5%;
-`
-const Video=styled.video`
-width:30%;
-height: 90%;
-position: relative;
-right: 5%;
-`
+const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #000000a7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  overflow-y: auto;
 
-const Info=styled.div`
-display: flex;
-flex-direction: column;
-width: 30%;
-height:90%;
-position: relative;
-background-color: black;
-right: 4.7%;
-gap: 15px;
-`
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 20px;
+  }
+`;
+const Img = styled.img`
+  width: 30%;
+  height: 90%;
+  position: relative;
+  right: 5%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+    right: 0;
+    margin-bottom: 15px;
+  }
+`;
+const Video = styled.video`
+  width: 30%;
+  height: 90%;
+  position: relative;
+  right: 5%;
+
+  @media (max-width: 768px) {
+    width: 80%;
+    height: auto;
+    right: 0;
+    margin-bottom: 15px;
+  }
+`;
+
+const Info = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: 90%;
+  position: relative;
+  background-color: black;
+  right: 4.7%;
+  gap: 15px;
+  @media (max-width: 768px) {
+    width: 96vw;
+    height: auto;
+    margin-left: 26px;
+  }
+`;
 const Head=styled.div`
 display: flex;
 align-items: center;
@@ -75,7 +98,11 @@ flex-shrink:0;
 cursor: pointer;
 `
 const Username=styled.h1`
-font-size: 17px;
+  font-size: 16px;
+
+@media (max-width: 768px) {
+  font-size: 18px;
+}
 `
 const Item = styled.div`
   display: flex;
@@ -98,14 +125,21 @@ const Hr=styled.hr`
 color: #202020;
 `
 const Caption=styled.p`
+  font-size: 14px;
 
+@media (max-width: 768px) {
+  font-size: 12px;
+}
 `
 const Comments=styled.div`
-display: flex;
-flex-direction: column;
-gap: 30px;
-overflow-y: scroll;
-height: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  overflow-y: scroll;
+  height: 60%;
+  @media (max-width: 768px) {
+    display: none;
+  }
 &::-webkit-scrollbar{
   display: none;
 }
@@ -113,6 +147,9 @@ height: 60%;
 const Misc=styled.div`
 display: flex;
 flex-direction: column;
+@media (max-width: 768px) {
+  gap: 7px;
+}
 `
 const Icon=styled.div`
 display: flex;
@@ -120,7 +157,12 @@ gap: 15px;
 margin-left: 2%;
 `
 const IconWrapper=styled.div`
-cursor: pointer;
+ cursor: pointer;
+  font-size: 24px;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 &:hover{
   color: gray;
 }
@@ -139,10 +181,13 @@ cursor: pointer;
 }
 `
 const Like=styled.div`
-display: flex;
-align-items: center;
-gap: 7px;
-margin-top:1%;
+ display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    gap: 7px;
+  }
 `
 const Pic=styled.img`
 width: 25px;

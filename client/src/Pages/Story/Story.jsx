@@ -13,23 +13,36 @@ width: 100%;
 height: 100%;
 `
 const Box=styled.div`
-height: 93vh;
-width: 25vw;
-border: solid 2px red;
+width: 80vw;
+height: 100vh;
+margin-top: 90px;
 display: flex;
+flex-direction: column;
+@media (min-width: 640px) {
+height: 100vh;
+width: 40vw;
+margin-top: 0px;
+display: flex;
+flex-direction: row;
 overflow-x: hidden;
 overflow-y: hidden;
 align-items: center;
 gap: 15px;
+}
 `
 
 const Item = styled.div`
+@media (min-width: 640px) {
   display: flex;
+
   align-items: center;
   cursor: pointer;
   padding: 7.5px 0px;
   font-weight: 500;
   font-size: large;
+  color: white;
+}
+display: none;
   &:hover{
     background-color: gray;
 }
@@ -76,9 +89,9 @@ const Story = () => {
     
     <Container>
     <Box>
-       <Item onClick={handlePrevStory}><KeyboardArrowLeftIcon/></Item>
+       <Item onClick={handlePrevStory}><KeyboardArrowLeftIcon fontSize='large' color='white'/></Item>
        <VideoStory story={currentStory[selectedStoryIndex]}/>
-        <Item onClick={handleNextStory}><KeyboardArrowRightIcon/></Item>
+        <Item onClick={handleNextStory}><KeyboardArrowRightIcon fontSize='large' color='white'/></Item>
      </Box>
     </Container>
   )
