@@ -1,7 +1,7 @@
 import {Router} from "express"
-import { registerUser,loginUser, logoutUser, addLike, toggleFollow, findUser, addBio, random, getUserForSidebar, addStories, getStories, getNotification,getUserNotification} from "../src/controllers/user.controller.js"
-import {upload} from "../src/middlewares/multer.middleware.js"
-import { verifyJWT } from "../src/middlewares/auth.middleware.js"
+import { registerUser,loginUser, logoutUser, addLike, toggleFollow, findUser, addBio, random, getUserForSidebar, addStories, getStories, getNotification,getUserNotification} from "../controllers/user.controller.js"
+import {upload} from "../middlewares/multer.middleware.js"
+import { verifyJWT } from "../middlewares/auth.middleware.js"
 
 const router= Router()
 
