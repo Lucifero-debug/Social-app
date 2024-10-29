@@ -9,7 +9,7 @@ const app=express()
 const server=http.createServer(app)
 const io=new Server(server,{
   cors:{
-      origin:["https://social-app-frontend-alpha.vercel.app"],
+      origin:["https://localhost:5173"],
       methods:["GET","POST"]
   }
 }) 
